@@ -1,8 +1,26 @@
-import { Wrench } from "lucide-react";
+import { MapPin, Phone, Wrench } from "lucide-react";
 import Image from "next/image";
 import icon from "../app/favicon.ico";
 
 type Props = {};
+
+const contactInfo = [
+  // {
+  //   icon: Mail,
+  //   text: "support@stitchsaas.com",
+  //   href: "mailto:support@stitchsaas.com",
+  // },
+  {
+    icon: Phone,
+    text: "+1 (501) 310-9625",
+    href: "tel:+15013109625",
+  },
+  {
+    icon: MapPin,
+    text: "1722 S. Carson Avenue, Tulsa, OK 74119, USA",
+    href: "https://maps.google.com",
+  },
+];
 
 const Footer = (props: Props) => {
   return (
@@ -24,6 +42,22 @@ const Footer = (props: Props) => {
             <p className="text-sm text-muted-foreground">
               On-demand mechanics at your fingertips
             </p>
+
+            <div className="space-y-3 mt-4 tracking-wide leading-5">
+              {contactInfo.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <a
+                    key={index}
+                    href={item.href}
+                    className="flex items-center transition-colors text-sm"
+                  >
+                    <Icon className="h-4 w-4 mr-3" />
+                    <span>{item.text}</span>
+                  </a>
+                );
+              })}
+            </div>
           </div>
 
           <div>

@@ -13,6 +13,9 @@ import {
   Zap,
   Menu,
   X,
+  WrenchIcon,
+  Settings,
+  Settings2,
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import { HexagonBackground } from "@/components/animate-ui/components/backgrounds/hexagon";
@@ -175,16 +178,17 @@ const LandingPage = () => {
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
+            <HexagonBackground className="absolute inset-0 opacity-100" />
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={containerVariants}
-              className="space-y-8"
+              className="space-y-8 relative"
             >
               <motion.div variants={itemVariants}>
-                <Badge className="w-fit" variant="secondary">
-                  <Zap className="w-3 text-primary h-3 mr-1" />
+                <Badge className="w-fit p-4" variant="secondary">
+                  <Zap className="w-3 animate-ping text-primary h-3 mr-1" />
                   Get help in minutes
                 </Badge>
               </motion.div>
@@ -209,7 +213,7 @@ const LandingPage = () => {
                 variants={itemVariants}
                 className="flex flex-col sm:flex-row gap-4"
               >
-                <StoreButtons/>
+                <StoreButtons />
               </motion.div>
 
               <motion.div
@@ -231,7 +235,10 @@ const LandingPage = () => {
                 </div>
                 <div className="h-12 w-px bg-border" />
                 <div>
-                  <div className="text-3xl font-bold flex items-center gap-2">4.9 <Star className="text-primary fill-primary animate-pulse"/></div>
+                  <div className="text-3xl font-bold flex items-center gap-2">
+                    4.9{" "}
+                    <Star className="text-primary fill-primary animate-pulse" />
+                  </div>
                   <div className="text-sm text-muted-foreground">
                     Average Rating
                   </div>
@@ -246,38 +253,35 @@ const LandingPage = () => {
               variants={scaleIn}
               className="relative md:ms-16 lg:mx-0"
             >
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-primary/5 rounded-3xl blur-3xl" />
-              <Card className="relative overflow-hidden border-2">
-                <CardContent className="p-0">
-                  <div className="aspect-square bg-gradient-to-br from-primary/10 to-background p-8 flex items-center justify-center">
-                    <HexagonBackground className="absolute inset-0 opacity-100" />
-                    <div className="relative items-center justify-center">
-                      <motion.div
-                        animate={{
-                          scale: [1, 1.1, 1],
-                          opacity: [0.5, 0.3, 0.5],
-                        }}
-                        transition={{
-                          duration: 3,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                        }}
-                        className="absolute  inset-0 bg-primary/5 rounded-full"
-                      />
-                      <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{
-                          duration: 20,
-                          repeat: Infinity,
-                          ease: "linear",
-                        }}
-                      >
-                        <Wrench className="w-48 h-48 text-primary" />
-                      </motion.div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              <div className="absolute inset-0 rounded-3xl blur-3xl" />
+              <div className="hidden md:flex items-center justify-center">
+                {/* <HexagonBackground className="absolute inset-0 opacity-100" /> */}
+                <div className="relative items-center justify-center">
+                  <motion.div
+                    animate={{
+                      scale: [0.5, 1.5, 0.5],
+                      opacity: [0.5, 0.3, 0.5],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                    className="absolute rounded-full inset-0 bg-primary/50"
+                  />
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{
+                      duration: 20,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                  >
+                    <Settings className="size-64 fill-neutral-400/70 dark:fill-neutral-500/70 text-primary" />
+                  </motion.div>
+                </div>
+                <Settings className="size-32 not-hover:animate-spin hover:cursor-pointer absolute top-0 right-20 dark:fill-neutral-500 fill-neutral-500/20 text-primary" />
+              </div>
             </motion.div>
           </div>
         </div>
