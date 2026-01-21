@@ -1,6 +1,7 @@
 import { MapPin, Phone, Wrench } from "lucide-react";
 import Image from "next/image";
 import icon from "../app/favicon.ico";
+import Link from "next/link";
 
 type Props = {};
 
@@ -81,7 +82,9 @@ const Footer = (props: Props) => {
           <div>
             <h3 className="font-semibold mb-4">Legal</h3>
             <div className="space-y-2 text-sm text-muted-foreground">
-              <div>Privacy</div>
+              <div>
+              <Link href={'/privacy'}>Privacy</Link>
+              </div>
               <div>Terms</div>
               <div>Security</div>
             </div>
