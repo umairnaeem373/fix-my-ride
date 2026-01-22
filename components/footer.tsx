@@ -8,7 +8,7 @@ type Props = {};
 const contactInfo = [
   // {
   //   icon: Mail,
-  //   text: "support@stitchsaas.com",
+  //   text: "support@fixmyride.com",
   //   href: "mailto:support@stitchsaas.com",
   // },
   {
